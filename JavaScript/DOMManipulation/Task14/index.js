@@ -12,33 +12,23 @@ function handleFormSubmit(event) {
     };
 
     // Add the new user to the existing users array
-    existingUsers.push(userDetails);
+    //existingUsers.push(userDetails);
 
     // Convert the array to a JSON string and store it in local storage
     //localStorage.setItem("users", JSON.stringify(existingUsers));
-    localStorage.setItem(email.value, JSON.stringify(userDetails));
+    localStorage.setItem(userDetails.email, JSON.stringify(userDetails));
 
     // Update the displayed user list
-    updateDisplayedUsers(existingUsers);
+    updateDisplayedUsers(userDetails);
 
     // Optionally, you can provide feedback to the user
-    alert("User details saved successfully!");
+    //alert("User details saved successfully!");
   }
 
   function updateDisplayedUsers(users) {
     var userList = document.getElementById("userList");
-
+    var listItem = document.createElement("li");
+    listItem.textContent = "Name: " + users.name + ", Email: " + users.email + ", Phone: " + users.phoneNumber;
     // Clear the existing list items
-    userList.innerHTML = "";
-
-    // Add each user as a list item
-    users.forEach(function(user) {
-      var listItem = document.createElement("li");
-      listItem.textContent = "Name: " + user.name + ", Email: " + user.email + ", Phone: " + user.phoneNumber;
-      userList.appendChild(listItem);
-    });
+    userList.innerHTML += listItem;
   }
-
-  // Display existing users when the page loads
-  var existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  updateDisplayedUsers(existingUsers);
