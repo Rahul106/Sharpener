@@ -268,6 +268,7 @@ function deleteInfo(index){
         preLoadCalculations()
 
         if(getData.length === 0){
+            localStorage.clear();
             currentIndex = 1
             startIndex = 1
             endIndex = 0

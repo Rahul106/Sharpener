@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content=" CRUD Application - Rahul, HTML, CSS, JavaScript, CRUD Application Rahul Rajkumar Gupta">
+    <meta name="description" content="CRUD Application - Rahul Rajkumar Gupta">
+    <meta name="author" content="Rahul Rajkumar Gupta">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="hd1">Expense Tracker</div>
+    <form id="MyForm">
+        <div class="part1">
+            <div class="p11">
+                <label class="label">Expense Number</label>
+                <input type="text" id="number" class="ip">
+            </div>
+            <div class="p11">
+                <label class="label">Expense Name</label>
+                <input type="text" id="name" class="ip">
+            </div>
+        </div>
+       <div class="part1">
+            <div class="p11">
+                <label class="label">Expense Amount</label>
+                <input type="text" id="amount" class="ip">
+            </div>
+            <div class="p11">
+                <label class="label">Expense Category</label>
+                <select name="BRANCH" id="BRC" class="FCLS ip">
+                    <option hidden></option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                </select>
+            </div>
+       </div>
+    </form>
+    <div class="btn">
+        <input type="submit" value="Add Expense" class="sbtn" id="SUBMITFORM">
+    </div>
+    <ul id="UNLS">
+        <!-- <li class="LI">
+            <p class="PLI">
+                101 Rahul Rajkumar Gupta 5000 27-Dec-2001
+            </p>
+            <button class="edit lbtn">Modify</button>
+            <button class="delete lbtn">Delete</button>
+        </li> -->
+    </ul>
+    <script src="script.js"></script>
+</body>
+</html>

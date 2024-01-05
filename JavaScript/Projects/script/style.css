@@ -1,0 +1,135 @@
+:root::-webkit-scrollbar{display: none;}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+body{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(2, 139, 121); 
+    color: white;
+}
+.hd{
+    margin: 10px;
+    font-size: 3.5vmax;
+    display: flex;
+    justify-content: center;
+}
+.hd1{
+    margin: 150px 15px 15px 15px;
+    font-size: 3vmax;
+    display: flex;
+    justify-content: center;
+}
+#MyForm{
+    margin: 30px;
+}
+.part1{
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+}
+.p11{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.part1 .label{
+    font-size: 20px;
+}
+.part1 .ip{
+    width: 20vw;
+    height: 5vh;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid white;
+    background: rgb(2, 139, 121); 
+    font-size: 18px;
+    color: white;
+}
+.ip:focus{
+    outline: none;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.sbtn{
+    cursor: pointer;
+    width: 30%;
+    height: 10%;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid white;
+    color: rgb(3, 3, 46);
+}
+#UNLS{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 6%;
+    height: 160px;
+    overflow: scroll;
+}
+#UNLS::-webkit-scrollbar{display: none}
+.LI{
+    border: 2px solid white;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.edit{
+    width: 10%;
+    height: 2vmax;
+    border: 1px solid white;
+}
+.delete{
+    width: 10%;
+    height: 2vmax;
+    border: 1px solid white;
+}
+@media screen and (width <= 430px){
+    .part1 .label{
+        font-size: 2vmax;
+    }
+    .part1 .ip{
+        width: 40vw;
+        font-size: 14px;
+    }
+    .sbtn{
+        width: 40%;
+    }
+    #UNLS{
+        height: 170px;
+    }
+    .LI{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px 10px -30px;
+    }
+    .edit{
+        width: 30%;
+        height: 4vmax;
+        margin: 5px;
+    }
+    .delete{
+        width: 30%;
+        height: 4vmax;
+    }
+}
+@media screen and (width <= 770px){
+    .edit{
+        height: 4vmax;
+    }
+    .delete{
+        height: 4vmax;
+    }
+}
