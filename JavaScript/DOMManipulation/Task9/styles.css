@@ -1,0 +1,21 @@
+
+form {
+    padding: 25px;
+    background-color: pink;
+}
+
+#name {
+    height: 25px;
+}
+
+.name {
+    font-style: italic;
+}
+
+.btn {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}

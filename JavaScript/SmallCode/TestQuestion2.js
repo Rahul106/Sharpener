@@ -4,15 +4,24 @@ class ArrayRunner {
 
         let count = '';
 
-        for(let i=0; i<acc.length; i++) {
-            for(let j=0; j<acc[i].length; j++) {
-
-                if(acc[i][j] === 5) {
+        acc.forEach(row => {
+            row.forEach(col => {
+                
+                if(col === 5) {
                     count++;
                 }
+            });
+        });
 
-            }   
-        }
+        // for(let i=0; i<acc.length; i++) {
+        //     for(let j=0; j<acc[i].length; j++) {
+
+        //         if(acc[i][j] === 5) {
+        //             count++;
+        //         }
+
+        //     }   
+        // }
 
         return count;
     }   

@@ -1,0 +1,38 @@
+class SharpArray {
+
+    static process(num) {
+
+        let rArray = [];
+        let countNum = 1;
+        while(rArray.length < num) {
+
+            let sum = 0;
+            let num = countNum;
+            while(num > 0) {
+                sum += Math.floor(num % 10);
+                num = num / 10;
+            }
+            
+            if(sum % 5 == 0) {
+                rArray.push(countNum);   
+            }
+
+            countNum++;
+        }
+
+        return rArray;
+    }
+
+} 
+
+let num1 = 5;
+console.log('Result : ' +SharpArray.process(num1));
+
+let num2 = 9;
+console.log('Result : ' +SharpArray.process(num2));
+
+let num3 = 15;
+console.log('Result : ' +SharpArray.process(num3));
+
+let num4 = 22;
+console.log('Result : ' +SharpArray.process(num4))
