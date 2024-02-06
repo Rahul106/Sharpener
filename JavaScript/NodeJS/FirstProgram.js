@@ -8,3 +8,4 @@ class FirstProgram {
 }
 
 FirstProgram.getReceiverMsg('Hello World');
+
