@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Dashboard</title>
+    <style>
+        /* Basic CSS for layout */
+        #chatMessages {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #messageInput {
+            width: calc(100% - 80px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #sendMessageBtn {
+            width: 70px;
+            padding: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Chat Dashboard</h1>
+    <div id="chatMessages"></div>
+    <form id="sendMessageForm">
+        <input type="text" id="messageInput" placeholder="Type your message here">
+        <br><br>
+        <button type="submit" id="sendMessageBtn">Send</button>
+    </form>
+
+    <script>
+        // Function to fetch and display messages
+        function fetchMessages() {
+            fetch('/messages')
+                .then(response => response.json())
+                .then(messages => {
+                    const chatMessagesDiv = document.getElementById('chatMessages');
+                    chatMessagesDiv.innerHTML = ''; // Clear existing messages
+
+                    // Loop through each message and display it in the chatMessages div
+                    messages.forEach(message => {
+                        const messageElement = document.createElement('div');
+                        messageElement.textContent = message;
+                        chatMessagesDiv.appendChild(messageElement);
+                    });
+
+                    // Scroll to bottom of chatMessages div
+                    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error fetching messages:', error);
+                });
+        }
+
+        // Call fetchMessages function when the page loads
+        window.onload = fetchMessages;
+
+        // JavaScript code to handle sending messages
+        document.getElementById('sendMessageForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get message from the input field
+            const message = document.getElementById('messageInput').value;
+
+            // Retrieve username from localStorage
+            const username = localStorage.getItem('username');
+            console.log("-----sdsad" + username)
+
+            // Check if the username exists
+            if (!username) {
+                console.error('Username not found in localStorage');
+                // Handle the case where username is not found
+            }
+
+            // Send message data to server
+            fetch('/submitMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, message })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send message');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log('Message sent successfully:', data);
+                    // After sending the message, fetch and display updated messages
+                    fetchMessages();
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                });
+
+            // Clear the input field
+            document.getElementById('messageInput').value = '';
+        });
+    </script>
+</body>
+
+</html>

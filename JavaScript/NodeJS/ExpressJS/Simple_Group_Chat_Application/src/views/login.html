@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // JavaScript code to handle form submission and store username in localStorage
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get username from the form input using event.target
+            const username = event.target.elements.username.value;
+
+            // Store username in localStorage
+            localStorage.setItem('username', username);
+
+            // Redirect to another page or perform other actions as needed
+            // For example, redirect to a dashboard page
+            window.location.href = '/dashboard';
+        });
+    </script>
+</body>
+</html>
